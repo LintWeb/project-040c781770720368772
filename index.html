@@ -3,9 +3,564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>project-040c781770720368772</title>
+    <title>Chittagong Divisional School | Excellence in Education</title>
+    <meta name="description" content="Official website of Chittagong Divisional School - Empowering students with quality education and modern facilities.">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #f39c12;
+            --accent-color: #e67e22;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            max-height: 60px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Programs/Features Section */
+        .features {
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Facilities Section */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .facility-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+
+        .facility-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .facility-item:hover .facility-overlay {
+            transform: translateY(0);
+        }
+
+        .facility-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about img {
+            max-height: 50px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: var(--white);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1.5fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+
+        /* Focus States */
+        a:focus, button:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 4px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Blank white page -->
+
+    <header role="banner">
+        <div class="container">
+            <nav role="navigation" aria-label="Main Navigation">
+                <a href="index.html" class="logo-container">
+                    <img src="images/uploaded-1.png" alt="Chittagong Divisional School logo" class="logo-img">
+                    <span class="logo-text">CHITTAGONG<br>DIVISIONAL SCHOOL</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#admission" class="btn btn-primary" style="display: none;">Apply Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Empowering Minds,<br>Shaping Futures</h1>
+                    <p>Welcome to Chittagong Divisional School, where we nurture excellence and foster holistic development in every student.</p>
+                    <div class="hero-btns">
+                        <a href="#admission" class="btn btn-primary">Enroll Today</a>
+                        <a href="#about" class="btn" style="border: 2px solid white; margin-left: 10px; color: white;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>1500+</h3>
+                        <p>Students</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>80+</h3>
+                        <p>Expert Teachers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Pass Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>25+</h3>
+                        <p>Years Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students studying in a group" style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div class="about-text">
+                        <h2>Our Legacy of Learning</h2>
+                        <p>Founded with a vision to provide world-class education in Chittagong, our school has been a beacon of knowledge for over two decades. We combine traditional values with modern pedagogical approaches to prepare our students for the challenges of the 21st century.</p>
+                        <p>At Chittagong Divisional School, we believe that every child is unique. Our mission is to create a stimulating environment where students feel safe, supported, and inspired to reach their full potential.</p>
+                        <a href="#more-about" class="btn btn-primary">Read Our Mission</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" class="section-padding features">
+            <div class="container">
+                <div class="text-center">
+                    <h2 style="color: var(--primary-color); font-size: 2.5rem; margin-bottom: 15px;">Academic Programs</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Comprehensive curriculum designed to develop critical thinking and creativity.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Primary Education</h3>
+                        <p>Focusing on foundational skills in literacy, numeracy, and social development through play-based learning.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Secondary Education</h3>
+                        <p>A rigorous academic program preparing students for national and international board examinations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Science & Technology</h3>
+                        <p>Advanced STEM curriculum with hands-on laboratory experience and coding workshops.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2 style="color: var(--primary-color); font-size: 2.5rem; margin-bottom: 15px;">Our Facilities</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">State-of-the-art infrastructure to support diverse learning needs.</p>
+                </div>
+                <div class="facilities-grid">
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Modern Library">
+                        <div class="facility-overlay">
+                            <h4>Digital Library</h4>
+                            <p>Over 20,000 books and digital resources.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Science Laboratory">
+                        <div class="facility-overlay">
+                            <h4>Science Labs</h4>
+                            <p>Equipped with modern apparatus for research.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sports Field">
+                        <div class="facility-overlay">
+                            <h4>Sports Complex</h4>
+                            <p>Indoor and outdoor facilities for all sports.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Computer Lab">
+                        <div class="facility-overlay">
+                            <h4>ICT Center</h4>
+                            <p>High-speed internet and latest computing tech.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="images/uploaded-1.png" alt="Chittagong Divisional School logo footer" style="max-width: 150px; filter: none;">
+                    <p>Dedicated to providing quality education and building the next generation of leaders in Chittagong and beyond.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Academics</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#admission">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>📍 Nasirabad, Chittagong, Bangladesh</p>
+                    <p>📞 +880 31 123456</p>
+                    <p>✉️ info@cdschool.edu.bd</p>
+                    <p>🌐 www.cdschool.edu.bd</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Chittagong Divisional School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
